@@ -1,0 +1,35 @@
+.navbar-ct-black {
+  
+    padding: 0px;
+  }
+
+  .navbar .navbar-brand-logo .brand {
+    color: #FFFFFF;
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-top: 0px;
+    width: 60px;
+  }
+
+  .display-2 {
+    font-size: 4.5rem;
+    font-weight: 300;
+
+  }
+
+  .navbar-brand,
+  .check {
+    padding: 2px;
+    font-weight: 800;
+    font-size: 25px;
+    padding-left: 2rem;
+  }
+
+  .navbar-toggler {
+    margin-right: .5rem;
+  }
+
+  
