@@ -181,7 +181,7 @@
 
 
                     <div class="card-body">
-                        <h5 class="card-title">BE-KUS | ADMIN CONSOLE | LOGIN NOW</h5>
+                        <h5 class="card-title">ADMIN CONSOLE | LOGIN NOW</h5>
                         <hr>
                         <p class="card-text text-justify p-3">
                         If you're not authorised, please revert back to home-page. As of our privacy concern
