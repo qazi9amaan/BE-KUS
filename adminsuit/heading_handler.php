@@ -30,7 +30,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/main.css">
-
 </head>
 
 <body class="dark">
@@ -39,7 +38,7 @@
             <div id="navbar">
                 <nav class="navbar navbar-expand-lg  navbar-dark navbar-ct-black ">
                     <div class="container">
-                        <a class="navbar-brand check" href="../index.html"
+                        <a class="navbar-brand check" href="admin_util.php"
                             style="font-size: 25px;font-weight: 400; ">BE-KUS | ADMIN </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent">
@@ -62,7 +61,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item active">
-                                    <a href="adminsuit/admin_util.php" class="nav-link">
+                                    <a href="   admin_util.php" class="nav-link">
                                         <i class="pe-7s-user"></i>
                                         <p>Account</p>
                                     </a>
@@ -116,39 +115,59 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 
+
+    <section>
+       
+        <div class="container mt-4">
+           
+                <div class="card text-white bg-dark mb-3 text-center">
+            
+                 
+                    <div class="card-body">
+                        <h5 class="card-title" >Wal pakeow seth</h5>
+                        <hr>
+                      <p class="card-text text-justify p-3">
+                        We are enhancing our database with kashmiri phrases. If you're good at kashmiri
+                        phrases, compliments. Please supports us and contribute here and get connected to us. Share your
+                        view, we'll appreciate it!
+                        </p>
+
+                     
+                            <div class="col-12">
+                            
+                                <div class="md-form ml-3" style="margin-top: -3px;">
+                                    <textarea required id="title" class="md-textarea form-control" rows="2" placeholder = "Heading Title"></textarea>
+                                </div>
+                                <div class="md-form ml-3" style="margin-top: -3px;">
+                                    <textarea required id="description" class="md-textarea form-control" rows="3" placeholder = "Heading Description" ></textarea>
+                                  </div>
+                            </div>
+
+                            <div class="col-12">
+                                    <div class="form-inline text-right pull-right col-xs-6">
+                                
+                                    <button id = "upload_btn" class="btn btn-outline-amber sm pull-right" >Upload</button>
+                                </div> 
+                            </div>
+                            <div id="result">
+
+                            </div>
+                       
+
+
+                        <p class="card-text mt-3 mb-3 "><small class="text-muted">Shukriya jinab</small></p>
+                    </div>
+            </div>
+        
+        </div>
+    </section>
+
+
     <section>
 
-        <div  class="container mt-4">
-            <div id = "componentresult" class="card-deck">
-                
+        <div class="container mt-5">
+            <div id = "request_result" class="list-group bg-dark">
             </div>
-            <br>
-            <div class="card-deck">
-                <div class="card bg-dark">
-                    <div class="card-body text-center">
-                        <h1 class="display-2 p-3">+</h1>
-                        <h5 class="card-title">ADD COMPLIMENT</h5>
-                    </div>
-                    <a href="new_compliment.php" class="stretched-link"></a>
-                </div>
-                <div class="card bg-dark">
-                    <div class="card-body text-center">
-                        <h1 class="display-2 p-3">+</h1>
-                        <h5 class="card-title">CREATE ADMIN</h5>
-                    </div>
-                    <a href="create_admin.php" class="stretched-link"></a>
-                </div>
-                <div class="card bg-dark">
-                    <div class="card-body text-center">
-                        <h1 class="display-2 p-3">+</h1>
-                        <h5 class="card-title">HEADINGS</h5>
-                    </div>
-                    <a href="heading_handler.php" class="stretched-link"></a>
-                </div>
-            </div>
-
-            
-
         </div>
     </section>
 
@@ -156,41 +175,80 @@
 
 
 
+    
 
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ajax-bootstrap-select/1.4.5/js/ajax-bootstrap-select.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ <script src="../js/main.js"></script>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
-    </script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js">
-    </script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-    <script src="../js/main.js"></script>
 
 <script>
-    
-    function initialise_components()
-    {
+        function initialize_components() {
             jQuery.ajax({
                 url: "admin_functions.php",
                 type: "GET",
-                data:'getalldata=true',
+                data:'getheadings=true',
                 success: function (data) {
-                    $('#componentresult').html(data);
-                   
+                    $('#request_result').html(data);
+
                 }
             });
 
-    }
+        }
 
-    $(document).ready(function () {
-        initialise_components();
-        var init_comp =  setInterval(initialise_components,3000);
-       
-    });
+        $(document).ready(function () {
+            initialize_components();
+            var init_comp = setInterval(initialize_components, 1000000000);
+            
+            $('#upload_btn').click(function(){
+                    
+                    jQuery.ajax({
+                    url:"admin_functions.php",
+                    type:"POST",
+                    data: {
+                        uploadheadings:true,
+                        title :  $('#title').val(),
+                        description : $('#description').val(),
+                            
+                        },
+                        success:function(data){  
+                            $('#result').html(data);
+                            $('#title').val('');
+                            $('#description').val('');
+                            initialize_components();
+                            }  
+                    });
 
-</script>
+});
+
+        });
+
+        // DELETING THE COMPLIMENT
+        $(document).on('click', '#remove_heading_btn', function(){  
+           var id= $(this).data("heading_id"); 
+           $.ajax({  
+                     url:"admin_functions.php",  
+                     method:"POST",  
+                     data:{
+                         deleteheading:true,
+                         id:id,
+                        },  
+                     dataType:"text",  
+                     success:function(data){  
+                        initialize_components();  
+                     }  
+                });  
+      }); 
+      
+      
+    
+      
+      
+      
+    </script>
 
 </body>
 

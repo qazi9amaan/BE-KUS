@@ -107,13 +107,13 @@ if(isset($_POST['registerausernow']))
 
 
 // REQUEST HANDLER
-if(isset($_POST['getnewrequest']))
-	    {
+if(isset($_POST['getnewrequest'])){
 	       if(!empty($_POST['username']) && !empty($_POST['compliment']))
 	       {    
                $user=$_POST['username'];
                $comp=$_POST['compliment'];
-                $sql = "INSERT INTO requests (user, compliment) VALUES ('$user', '$comp')";
+               $instagram_id=$_POST['instagramid'];
+                $sql = "INSERT INTO requests (user, compliment, instagramid) VALUES ('$user', '$comp','$instagram_id')";
                 
                 if (mysqli_query($conn, $sql)) {
                     echo "<p style = 'color:green;'> Thankyou!</p>";
@@ -125,7 +125,7 @@ if(isset($_POST['getnewrequest']))
            else{
             echo "<p style = 'color:red;' > Hayhaii kyasa jinab!</p>";
            }
-        }
+}
 
 
 

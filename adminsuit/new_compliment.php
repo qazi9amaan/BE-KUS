@@ -1,4 +1,16 @@
+<?php
+    session_start();
+
+   
+    if(!isset($_SESSION['status'])){
+        header('Location:../index.html');
+    }
+?>
+
+
 <html lang="en">
+
+
 
 <head>
     <meta charset="UTF-8">
@@ -10,14 +22,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
-    <link href="css/ct-navbar.css" rel="stylesheet" />
-    <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+    <link href="../css/ct-navbar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/main.css">
 
 </head>
 
@@ -27,8 +39,8 @@
             <div id="navbar">
                 <nav class="navbar navbar-expand-lg  navbar-dark navbar-ct-black ">
                     <div class="container">
-                        <a class="navbar-brand check" href="index.html"
-                            style="font-size: 25px;font-weight: 400; ">BE-KUS </a>
+                        <a class="navbar-brand check" href="admin_util.php"
+                            style="font-size: 25px;font-weight: 400; ">BE-KUS | ADMIN </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent">
                             <span class="navbar-toggler-icon"></span>
@@ -38,6 +50,33 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav  ml-auto">
 
+
+                                <?php 
+
+                            if(isset($_SESSION['status'])){
+                            ?>
+                                <li class="nav-item">
+                                    <a href="create_admin.php" class="nav-link">
+                                        <i class="pe-7s-users"></i>
+                                        <p>Create Admin</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a href="adminsuit/admin_util.php" class="nav-link">
+                                        <i class="pe-7s-user"></i>
+                                        <p>Account</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a href="../helper/functions.php?logout=1" class="nav-link">
+                                        <i class="pe-7s-power"></i>
+                                        <p>Logout</p>
+                                    </a>
+                                </li>
+                                <?php 
+                                }
+                                else{
+                                ?>
                                 <li class="nav-item ">
                                     <a href="#" class="nav-link">
                                         <i class="pe-7s-science"></i>
@@ -51,12 +90,20 @@
                                         <p>Friends</p>
                                     </a>
                                 </li>
-                                <li class="nav-item active ">
-                                    <a href="connecttous.html" class="nav-link">
-                                        <i class="pe-7s-graph1"></i>
-                                        <p>Connect</p>
+                                <li class="nav-item active">
+                                    <a href="login.php" class="nav-link">
+                                        <i class="pe-7s-user"></i>
+                                        <p>Login</p>
                                     </a>
                                 </li>
+                                <?php
+                                }
+                                ?>
+
+
+
+
+
                             </ul>
                         </div>
                     </div>
@@ -87,25 +134,20 @@
 
                      
                             <div class="col-12">
-                                <div class="md-form ">
-                                    <input required type="text" id="username" class="form-control validate">
-                                    <label for="username" data-error="Haye hai.." data-success="behtareen....">Isme-shareef</label>
-                                  </div>
-                                  <div class="md-form ">
-                                    <input required type="text" id="instagramid" class="form-control validate">
-                                    <label for="instagramid" data-error="Haye hai.." data-success="behtareen....">Instagram Id</label>
-                                  </div>
-                              </div>
                             
-                           
                                 <div class="md-form ml-3" style="margin-top: -3px;">
                                     <textarea required id="compliment" class="md-textarea form-control" rows="3"></textarea>
                                     <label for="complement">Complement</label>
                                   </div>
                              </div>
                             <div class="col-12">
-                                <button id ="uploadcompliment" type="button" class="btn btn-outline-success ">Contribute</button>  
-                            </div>
+                            <div class="form-inline text-right pull-right col-xs-6">
+                            <select name="sex"  style = "width:115px;" id="sex" class = "form-control form-control-lg btn-outline-amber pull-right" >
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <button id = "upload_btn" class="btn btn-outline-amber sm pull-right" >Upload</button>
+                         </div> </div>
                             <div id="result">
 
                             </div>
@@ -132,41 +174,34 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js">
     </script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>    <script src="js/main.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="../js/main.js"></script>
 
+<script>
+  $(document).ready(function(){
+  $('#upload_btn').click(function(){
+    
+         jQuery.ajax({
+           url:"admin_functions.php",
+           type:"POST",
+            data: {
+                uploadcompliment:true,
+                 sex : $('select[name="sex"]').val(),
+                compliment : $('#compliment').val(),
+                 
+               },
+             success:function(data){  
+                 $('#result').html(data);
+                 $('#compliment').val('');
+                 }  
+         });
 
+});
+
+});
+</script>
 
 </body>
 
-<script>
-
-
- $(document).ready(function(){
-  
-      $('#uploadcompliment').click(function(){
-        
-             jQuery.ajax({
-               url:"helper/functions.php",
-               type:"POST",
-                data: {
-                    getnewrequest:true,
-                    username : $('#username').val(),
-                    instagramid : $('#instagramid').val(),
-                    compliment : $('#compliment').val(),
-                     
-                   },
-                 success:function(data){  
-                     $('#result').html(data);
-                     $('#username').val('');
-                     $('#instagramid').val('');
-                     $('#compliment').val('');
-                     }  
-             });
-
-    });
-   
- });
-
-</script>
 
 </html>
