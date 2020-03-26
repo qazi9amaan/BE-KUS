@@ -1,0 +1,3 @@
+CREATE TABLE `bekus`.`requests` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `user` VARCHAR(255) NOT NULL , `compliment` TEXT NOT NULL , `upload_date` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+CREATE TABLE `bekus`.`admins` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`), UNIQUE (`username`)) ENGINE = InnoDB;

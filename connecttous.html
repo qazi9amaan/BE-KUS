@@ -68,17 +68,53 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-   
+
     <section>
-        <div class="card mb-3">
+       
+        <div class="container mt-4">
            
-            <div class="card-body">
-              <h3 class="card-title text-black-50 text-center" >Wal pakeow seth</h3>
-              <p class="card-text">We are enhancing our database with kashmiri phrases. If you're good at kashmiri phrases, compliments. Please supports us and contribute here and get connected to us. Share your view, we'll appreciate it!</p>
-              <p class="card-text"><small class="text-muted">Wael teli de madat</small></p>
+                <div class="card text-white bg-dark mb-3 text-center">
+            
+                 
+                    <div class="card-body">
+                        <h5 class="card-title" >Wal pakeow seth</h5>
+            <hr>
+                      <p class="card-text text-justify p-3">
+                        We are enhancing our database with kashmiri phrases. If you're good at kashmiri
+                        phrases, compliments. Please supports us and contribute here and get connected to us. Share your
+                        view, we'll appreciate it!
+                        </p>
+
+                     
+                            <div class="col-12">
+                                <div class="md-form ">
+                                    <input required type="text" id="username" class="form-control validate">
+                                    <label for="username" data-error="Haye hai.." data-success="behtareen....">Isme-shareef</label>
+                                  </div>
+                              </div>
+                            
+                           
+                                <div class="md-form ml-3" style="margin-top: -3px;">
+                                    <textarea required id="compliment" class="md-textarea form-control" rows="3"></textarea>
+                                    <label for="complement">Complement</label>
+                                  </div>
+                             </div>
+                            <div class="col-12">
+                                <button id ="uploadcompliment" type="button" class="btn btn-outline-success ">Contribute</button>  
+                            </div>
+                            <div id="result">
+
+                            </div>
+                       
+
+
+                        <p class="card-text mt-3 mb-3 "><small class="text-muted">Shukriya jinab</small></p>
+                    </div>
             </div>
-          </div>
+        
+        </div>
     </section>
+
 
 
 
@@ -92,10 +128,39 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js">
     </script>
-    <script src="js/main.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>    <script src="js/main.js"></script>
 
-    
+
 
 </body>
+
+<script>
+
+
+ $(document).ready(function(){
+  
+      $('#uploadcompliment').click(function(){
+        
+             jQuery.ajax({
+               url:"helper/request.php",
+               type:"POST",
+                data: {
+                    getnewrequest:true,
+                    username : $('#username').val(),
+                    compliment : $('#compliment').val(),
+                     
+                   },
+                 success:function(data){  
+                     $('#result').html(data);
+                     $('#username').val('');
+                     $('#compliment').val('');
+                     }  
+             });
+
+    });
+   
+ });
+
+</script>
 
 </html>
