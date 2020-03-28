@@ -458,7 +458,6 @@
 
                     </div>
 
-
                     <!-- GRADIENT BACKGROUND  -->
                     <div class="carousel-item">
                         <div id="gradient_overlay" class="filter-a" onclick="off()">
@@ -467,7 +466,7 @@
                                     <div class="col-12 text-center px-3">
                                         <div class="result-container px-2">
                                             <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12">
-                                                <img class=" shadow bg-white rounded-circle mx-autod-block m-3"
+                                                <img id = "userimage" class=" shadow bg-white rounded-circle mx-autod-block m-3"
                                                     src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.X-0nUNaa_Y_DKh8WYm6buQHaHa%26pid%3DApi&amp;f=1"
                                                     alt="" style="width: 130px;height: 130px;">
                                                 <div id="componentresult"
@@ -607,7 +606,14 @@
 
 
     <script>
+
+
+
+
+
         $(document).ready(function () {
+
+            setbackground();
             $("#componentresult").css('color', 'rgb(34, 119, 96)');
             $('#modalLoginAvatar').modal({
                     backdrop: 'static',
@@ -622,6 +628,9 @@
     <!-- LOADING COMPLEMENT -->
 
     <script>
+
+
+
         function initialise_complement() {
             var user = $('#username').val();
             jQuery.ajax({
