@@ -129,4 +129,48 @@ if(isset($_POST['getnewrequest'])){
 
 
 
+
+
+// VIEW COMPLEMENTS HANDLER
+function  getcomplimenentfor($conn,$user)
+{
+  $sql = "select value from compliments order by rand() limit 4 ";
+  if($result = mysqli_query($conn, $sql)){
+      if(mysqli_num_rows($result) > 0){                
+          while($row = mysqli_fetch_array($result)){
+            echo ' '.$row['value'];
+          }
+        }
+      }
+}
+
+
+
+// HOLDER
+if(isset($_GET['getcomplement']))
+{
+  $user = $_GET['user'];
+  if(empty($user))
+  {
+    header('Location:index.html');
+  }else{
+    getcomplimenentfor($conn,$user);
+  }
+}
+
+
+
 ?>
+
+
+
+ <!-- 
+                    <div style="height:460px; border-radius: 20px;" class="mx-3 shadow bg-white">
+                        <h1 style = " font-weight : 500; color:rgb(34, 119, 96)" class="display1">
+                               
+                     </h1>
+                    </div> -->
+
+                        <!-- 
+                    <p class = "shadow  bg-white rounded p-3 text-center text-justify"  style = "color:rgb(34, 119, 96);">     at handlePromise (/home/qaziamaan/.vscode/extensions/knisterpeter.vscode-github-0.30.3/node_modules/execa/index.js:114:26)
+                     </p> -->
