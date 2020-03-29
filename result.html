@@ -29,146 +29,14 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/filters.css">
 </head>
 
 <body>
 
 
 
-    <style>
-        #overlay {
-            position: fixed;
-            display: block;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
 
-            z-index: 2;
-            cursor: pointer;
-        }
-
-
-
-        .filter-b {
-            background: linear-gradient(180deg, rgba(226, 226, 226, 0.554), rgba(121, 121, 121, 0.794), rgba(85, 85, 85,
-                        0.699), rgba(206, 206, 206, 0.376));
-            opacity: 0.35;
-
-        }
-
-        .filter-c {
-            background: linear-gradient(120deg, rgb(4, 7, 0), rgb(160, 113, 71), rgb(181, 105, 79), rgb(211, 151, 159));
-            opacity: 0.35;
-
-        }
-
-        .filter-d {
-            background: linear-gradient(120deg, rgb(255, 0, 98), rgb(255, 0, 200), rgba(143, 0, 209, 0.747), rgb(89, 0,
-                        255));
-            opacity: 0.35;
-        }
-
-        .filter-e {
-            background: linear-gradient(120deg, rgb(254, 247, 45), rgb(153, 36, 1), rgb(254, 94, 20), rgb(54, 24, 13));
-            opacity: 0.35;
-
-        }
-
-        .filter-f {
-            background: linear-gradient(180deg, rgba(103, 59, 50, 1), rgb(87, 50, 24), rgb(168, 118, 95), rgb(105, 68,
-                        52));
-            opacity: 0.35;
-
-        }
-
-        .filter-g {
-            background: linear-gradient(180deg, rgb(0, 0, 0), rgb(0, 0, 0), rgb(59, 56, 53), rgb(90, 88, 77));
-            opacity: 0.35;
-
-
-
-        }
-
-        .filter-h {
-            background: linear-gradient(120deg, rgba(238, 255, 0, 0.527), rgba(255, 0, 0, 0.589), rgb(255, 94, 1),
-                    rgb(255, 217, 0));
-            opacity: 0.35;
-
-
-        }
-
-        .filter-i {
-            background: linear-gradient(120deg, rgba(187, 137, 0, 0.657), rgba(0, 160, 0, 0.198), rgba(0, 117, 111,
-                        0.322), rgba(185, 132, 7, 0.404));
-            opacity: 0.35;
-
-
-        }
-
-        .filter-j {
-
-            background: linear-gradient(320deg, rgba(15, 102, 48, 0.678) 44%, rgba(161, 138, 5, 0.801) 58%);
-            opacity: 0.35;
-
-
-        }
-
-        .filter-k {
-
-            background: linear-gradient(84deg, rgba(255, 224, 0) 2%, rgba(255, 92, 0) 43%, rgba(255, 0, 0) 85%,
-                    rgba(255, 0, 0) 97%);
-            opacity: 0.35;
-
-
-
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-
-        #text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            font-size: 50px;
-            color: white;
-            transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-        }
-
-
-
-        #gradient_background {
-            background-image: linear-gradient(120deg, rgba(218, 241, 235, 0.705), rgba(15, 235, 176, 0.712));
-
-        }
-
-        #gradient_overlay {
-            position: fixed;
-            display: block;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            z-index: 2;
-            cursor: pointer;
-        }
-
-        .vertical-align {
-            display: flex;
-            align-items: center;
-        }
-
-
-        #main-section {
-            display: none;
-        }
-    </style>
 
 
 
@@ -180,6 +48,11 @@
 
         .modal-content {
             background: #2D2E2F !important;
+        }
+
+        .carousel-caption {
+            position: absolute;
+
         }
     </style>
 
@@ -206,11 +79,11 @@
                         <div class="md-form ml-0 mr-0">
                             <div class="container">
 
-                                <input type="text" type="text" id="username" placeholder="Wansa naaw kya chui?"
+                                <input required type="text" type="text" id="input_username" placeholder="Wansa naaw kya chui?"
                                     class="form-control form-control-sm validate ml-0">
-                                <select name="sex" id="" class="form-control">
-                                    <option value="m">Mohniv</option>
-                                    <option value="f">Zanan</option>
+                                <select name="sex" id="sex" class="form-control">
+                                    <option value="male">Mohniv</option>
+                                    <option value="female">Zanan</option>
                                 </select>
                                 <input type="date" name="" class="form-control" classplaceholder="zaii doh" id="">
                             </div>
@@ -241,242 +114,78 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
 
+                    <!-- FILTERS -->
 
-                    <div class="carousel-item active">
-                        <div class="filter-a" id="overlay" onclick="off()">
-                            <div id="text">Overlay Text</div>
+
+                    <div class="carousel-item active ">
+                        <div id="gradient_overlay" class="filter-c" onclick="off()">
+                            <div class="carousel-caption">
+                                <div id="" class=" bg-darkrounded text-justify" style="word-wrap: break-word;   
+                                line-height: normal;    
+                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 3223;">
+                                    <p style="color:#ffffff !important" class="text-center px-3 h4"><span class="username"></span> <i
+                                            class="icon-heart" aria-hidden="true"></i></p>
+                                    <span class="print">
+                                       
+                                    </span>
+                                </div>
+                                <div class="container">
+                                    <div class="rounded p-2 pull-right "
+                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                        Get your @ bekus.ml
+                                    </div>
+                                </div>
+                            </div>
                             <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
                                 data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
+
+
+                            <div class="carousel-caption carousel-control-next">
+                                <div class="container ">
+                                    <h1  style= "margin-top: 25px;" class="display-5 ">CLICK_TO_HIDE</h1>
+                                </div>
+                                </div>
+
+                            
                             <a class="carousel-control-next" href="#carouselExampleControls" role="button"
                                 data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
+                            
+                            <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                                style=" filter: blur(1px);"
+                                src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
+                            
                         </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100"
-                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
-
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-b" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100"
-                            src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-c" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-d" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-f" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
                     </div>
 
-                    <div class="carousel-item ">
-                        <div class="filter-e" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-g" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-h" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-i" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-j" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-                    <div class="carousel-item ">
-                        <div class="filter-k" id="overlay" onclick="off()">
-                            <div id="text">Overlay 2</div>
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-
-                        <img class="d-flex align-items-center justify-content-center min-vh-100 w-100"
-                            src="https://i.ytimg.com/vi/Syq1fKvnq7w/maxresdefault.jpg" alt="First slide">
-
-                    </div>
-
-                    <!-- GRADIENT BACKGROUND  -->
-                    <div class="carousel-item">
-                        <div id="gradient_overlay" class="filter-a" onclick="off()">
-                            <div class="container mt-5">
+                    <div class="carousel-item  ">
+                        <div id="gradient_overlay" class="filter-c" onclick="off()">
+                            <div style="z-index: 10052;" class="container  ">
                                 <div class="row vertical-align">
                                     <div class="col-12 text-center px-3">
                                         <div class="result-container px-2">
-                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12">
-                                                <img id = "userimage" class=" shadow bg-white rounded-circle mx-autod-block m-3"
-                                                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.X-0nUNaa_Y_DKh8WYm6buQHaHa%26pid%3DApi&amp;f=1"
-                                                    alt="" style="width: 130px;height: 130px;">
-                                                <div id="componentresult"
-                                                    class="shadow  bg-white rounded p-3 mx-2 text-justify" style="word-wrap: break-word;  display:block; opacity: .8; 
-                                                line-height: normal; font-size :19px ; font-weight:300;">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
 
+                                                <div id="" class="  rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                line-height: normal;    text-shadow: px 3px px rgb(3, 3, 3); 
+                                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 2000;">
+                                                    <p style="color:#fff" class="text-center h4"><span
+                                                            class="username"></span> <i class="icon-heart"
+                                                            aria-hidden="true"></i></p>
+                                                    <span class="print">
+
+
+                                                    </span>
                                                 </div>
-                                                <div class="">
-                                                    <div class="rounded p-3 pull-right "
-                                                        style=" line-height: normal; font-size :19px ; font-weight:300;">
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
                                                         Get your @ bekus.ml
                                                     </div>
                                                 </div>
@@ -501,8 +210,383 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
+                        <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                            style=" filter: blur(1px);" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                            alt="First slide">
+                    </div>
+
+                    <div class="carousel-item  ">
+                        <div id="gradient_overlay" class="filter-d" onclick="off()">
+                            <div style="z-index: 10052;" class="container  ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+
+                                                <div id="" class="  rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                line-height: normal;    text-shadow: px 3px px rgb(3, 3, 3); 
+                                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 2000;">
+                                                    <p style="color:#fff" class="text-center h4"><span
+                                                            class="username"></span> <i class="icon-heart"
+                                                            aria-hidden="true"></i></p>
+                                                    <span class="print">
+
+
+                                                    </span>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        Get your @ bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                            style=" filter: blur(1px);" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                            alt="First slide">
+                    </div>
+                    <div class="carousel-item ">
+                        <div id="gradient_overlay" class="filter-e" onclick="off()">
+                            <div style="z-index: 10052;" class="container  ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+
+                                                <div id="" class="  rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                line-height: normal;    text-shadow: px 3px px rgb(3, 3, 3); 
+                                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 2000;">
+                                                    <p style="color:#fff" class="text-center h4"><span
+                                                            class="username"></span> <i class="icon-heart"
+                                                            aria-hidden="true"></i></p>
+                                                    <span class="print">
+
+
+                                                    </span>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        Get your @ bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                            style=" filter: blur(1px);" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                            alt="First slide">
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div id="gradient_overlay" class="filter-f" onclick="off()">
+                            <div style="z-index: 10052;" class="container  ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+
+                                                <div id="" class="  rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                line-height: normal;    text-shadow: px 3px px rgb(3, 3, 3); 
+                                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 2000;">
+                                                    <p style="color:#fff" class="text-center h4"><span
+                                                            class="username"></span> <i class="icon-heart"
+                                                            aria-hidden="true"></i></p>
+                                                    <span class="print">
+
+
+                                                    </span>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        Get your @ bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                            style=" filter: blur(1px);" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                            alt="First slide">
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div id="gradient_overlay" class="filter-g" onclick="off()">
+                            <div style="z-index: 10052;" class="container  ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+
+                                                <div id="" class="  rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                line-height: normal;    text-shadow: px 3px px rgb(3, 3, 3); 
+                                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 2000;">
+                                                    <p style="color:#fff" class="text-center h4"><span
+                                                            class="username"></span> <i class="icon-heart"
+                                                            aria-hidden="true"></i></p>
+                                                    <span class="print">
+
+
+                                                    </span>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        Get your @ bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                            style=" filter: blur(1px);" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                            alt="First slide">
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div id="gradient_overlay" class="filter-h" onclick="off()">
+                            <div style="z-index: 10052;" class="container  ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+
+                                                <div id="" class="  rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                line-height: normal;    text-shadow: px 3px px rgb(3, 3, 3); 
+                                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 2000;">
+                                                    <p style="color:#fff" class="text-center h4"><span
+                                                            class="username"></span> <i class="icon-heart"
+                                                            aria-hidden="true"></i></p>
+                                                    <span class="print">
+
+
+                                                    </span>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        Get your @ bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                            style=" filter: blur(1px);" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                            alt="First slide">
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div id="gradient_overlay" class="filter-i" onclick="off()">
+                            <div style="z-index: 10052;" class="container  ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+
+                                                <div id="" class="  rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                line-height: normal;    text-shadow: px 3px px rgb(3, 3, 3); 
+                                                font-size :19px ;color:#fff; font-weight:300; margin-top: 2rem; z-index: 2000;">
+                                                    <p style="color:#fff" class="text-center h4"><span
+                                                            class="username"></span> <i class="icon-heart"
+                                                            aria-hidden="true"></i></p>
+                                                    <span class="print">
+
+
+                                                    </span>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        Get your @ bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                        <img class="back d-flex align-items-center justify-content-center min-vh-100 w-100"
+                            style=" filter: blur(1px);" src="https://mdbootstrap.com/img/Photos/Slides/img%20(68).jpg"
+                            alt="First slide">
+                    </div>
+
+
+
+
+
+                    <!-- GRADIENT BACKGROUND  -->
+                    <div class="carousel-item ">
+                        <div id="gradient_overlay" class="filter-a" onclick="off()">
+                            <div class="container ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+                                                <div class="shadow  bg-white rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                    line-height: normal; font-size :19px ; opacity: .8; font-weight:300; margin-top: 3.5rem;">
+                                                    <div id="gradient_text" class="text-justify">
+                                                        <center>
+                                                            <span class="username"></span> <i class="icon-heart"
+                                                                aria-hidden="true"></i>
+                                                        </center>
+
+                                                        <span style="margin-top: 3rem;" class="print"
+                                                            id="componentresult">
+                                                          
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        Get your @ bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            <div class="carousel-caption carousel-control-next">
+                                <div class="container ">
+                                    <h1  style= "margin-top: 25px; color: #333;" class="display-5">DOUBLE_CLICK</h1>
+                                </div>
+                                </div>
+                        </div>
                         <div gradient-id="1" id="gradient_background"
-                            class="d-flex align-items-center justify-content-center min-vh-100">
+                            class="back d-flex align-items-center justify-content-center min-vh-100 w-100">
 
                         </div>
                     </div>
@@ -566,37 +650,42 @@
 
 
 
-        $("#gradient_overlay").dblclick(function () {
+        $(".filter-a").dblclick(function () {
             var val = $("#gradient_background").attr('gradient-id');
 
             switch (val) {
                 case "1":
-                    $("#gradient_background").css("background-image", "");
-                    $("#componentresult").css('color', '')
+                    $("#gradient_background").css("background-image", "linear-gradient(#FC5C7D,#6A82FB)");
+                    $("#gradient_text").css('color', '#6A82FB')
                     $("#gradient_background").attr('gradient-id', '2');
 
                     break;
                 case "2":
-                    $("#gradient_background").css("background-image", "");
-                    $("##componentresult").css('color', '')
-                    $("#gradient_background").attr('gradient-id', '2');
+                    $("#gradient_background").css("background", "#333");
+                    $("#gradient_text").css('color', '#333')
+                    $("#gradient_background").attr('gradient-id', '3');
 
                     break;
                 case "3":
-                    $("#gradient_background").css("background-image", "");
-                    $("##componentresult").css('color', '')
-                    $("#gradient_background").attr('gradient-id', '2');
+                    $("#gradient_background").css("background-image", "linear-gradient( #CAC531,#F3F9A7)");
+                    $("#gradient_text").css('color', '#CAC531')
+                    $("#gradient_background").attr('gradient-id', '4');
 
                     break;
 
                 case "4":
-                    $("#gradient_background").css("background-image",
-                        "linear-gradient(120deg, rgba(218, 241, 235, 0.705), rgba(15, 235, 176, 0.712))");
-                    $("##componentresult").css('color', '')
+                    $("#gradient_background").css("background-image", "linear-gradient( #e1eec3,#f05053)");
+                    $("#gradient_text").css('color', '#f05053')
+                    $("#gradient_background").attr('gradient-id', '5');
+                    break;
+                case "5":
+
+                    $("#gradient_background").css("background-image", "linear-gradient( #ff9966,#ff5e62)");
+                    $("#gradient_text").css('color', '#ff5e62')
                     $("#gradient_background").attr('gradient-id', '1');
                     break;
                 default:
-                    $("##componentresult").css('color', 'rgb(34, 119, 96);')
+                    $("#gradient_text").css('color', 'rgb(34, 119, 96);')
                     $("#gradient_background").css("background-image",
                         "linear-gradient(120deg, rgba(218, 241, 235, 0.705), rgba(15, 235, 176, 0.712));");
             }
@@ -606,15 +695,13 @@
 
 
     <script>
-
-
-
-
-
+        function getrandompicture() {
+            var x = Math.floor((Math.random() * 127) + 1);
+            $(".back").attr('src', 'bg/kashmir-' + x + '.jpg');
+        }
         $(document).ready(function () {
+            $("#gradient_text").css('color', 'rgb(34, 119, 96)');
 
-            setbackground();
-            $("#componentresult").css('color', 'rgb(34, 119, 96)');
             $('#modalLoginAvatar').modal({
                     backdrop: 'static',
                     keyboard: false
@@ -622,15 +709,13 @@
                 'show'
 
             )
+            getrandompicture();
         });
     </script>
 
     <!-- LOADING COMPLEMENT -->
 
     <script>
-
-
-
         function initialise_complement() {
             var user = $('#username').val();
             jQuery.ajax({
@@ -638,7 +723,7 @@
                 type: "GET",
                 data: 'getcomplement=true&user=' + user,
                 success: function (data) {
-                    $('#componentresult').html(data);
+                    $('.print').html(data);
 
                 }
             });
@@ -649,10 +734,16 @@
         $(document).on('click', '#showcompliment', function () {
             $('#modalLoginAvatar').modal('hide');
             $('#main-section').css('display', 'block');
+            var name = $("#input_username").val();
+            $(".username").html(name);
             initialise_complement();
 
 
 
+        });
+
+        $('.carousel').carousel({
+            interval: 1000 * 10
         });
     </script>
 

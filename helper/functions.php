@@ -177,7 +177,7 @@ if(isset($_GET['getallcontributors']))
           while($row = mysqli_fetch_array($result)){
             echo '
             <li class="ftco-animate mb-1"><a href="instagram.com/'.$row['instagram_id'].'"><span class="icon-instagram"></span></a><br><span class = "p-1 " >'.$row['name'].'</span></li>
-            '
+            ';
           }
         }
       }
