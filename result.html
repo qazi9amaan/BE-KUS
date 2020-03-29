@@ -71,8 +71,8 @@
 
 
                         <img class=" shadow bg-dark rounded-circle mx-autod-block m-3"
-                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.X-0nUNaa_Y_DKh8WYm6buQHaHa%26pid%3DApi&amp;f=1"
-                            alt="" style="width: 130px;height: 130px;">
+                            src="images/bg-4.jpg"
+                            alt="" style="width: 150px ;height: 150px;">
                         <h5 class="mt-1 ">Wal pakho broanth</h5>
                         <p class="lead">Kashrien bapath kashier path</p>
 
@@ -84,6 +84,7 @@
                                 <select name="sex" id="sex" class="form-control">
                                     <option value="male">Mohniv</option>
                                     <option value="female">Zanan</option>
+                                    <option disabled value="">Wani hai pai hi che</option>
                                 </select>
                                 <input type="date" name="" class="form-control" classplaceholder="zaii doh" id="">
                             </div>
@@ -716,12 +717,14 @@
     <!-- LOADING COMPLEMENT -->
 
     <script>
-        function initialise_complement() {
+        function initialise_complement(sex ) {
+
+            
             var user = $('#username').val();
             jQuery.ajax({
                 url: "helper/functions.php",
                 type: "GET",
-                data: 'getcomplement=true&user=' + user,
+                data: 'getcomplement=true&user=' + user+'&sex='+sex,
                 success: function (data) {
                     $('.print').html(data);
 
@@ -736,10 +739,12 @@
             if(name != "")
             {
                 $('#modalLoginAvatar').modal('hide');
-            $('#main-section').css('display', 'block');
-           
-            $(".username").html(name);
-            initialise_complement();
+                $('#main-section').css('display', 'block');
+               
+                var sex = $('#sex').val();
+                $("#input_username").val('');
+                $(".username").html(name);
+                initialise_complement(sex);
 
             }
            
@@ -749,7 +754,7 @@
         });
 
         $('.carousel').carousel({
-            interval: 1000 * 10
+            interval: 1000 * 5
         });
     </script>
 

@@ -132,9 +132,9 @@ if(isset($_POST['getnewrequest'])){
 
 
 // VIEW COMPLEMENTS HANDLER
-function  getcomplimenentfor($conn,$user)
+function  getcomplimenentfor($conn,$user,$sex)
 {
-  $sql = "select value from compliments order by rand() limit 4 ";
+  $sql = "select value from compliments where sex = '$sex' order by rand() limit 4 ";
   if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){                
           while($row = mysqli_fetch_array($result)){
@@ -150,11 +150,12 @@ function  getcomplimenentfor($conn,$user)
 if(isset($_GET['getcomplement']))
 {
   $user = $_GET['user'];
+  $sex = $_GET['sex'];
   if(empty($user))
   {
-    header('Location:index.html');
+    
   }else{
-    getcomplimenentfor($conn,$user);
+    getcomplimenentfor($conn,$user,$sex);
   }
 }
 
