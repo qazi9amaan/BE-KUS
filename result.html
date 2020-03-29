@@ -80,7 +80,7 @@
                             <div class="container">
 
                                 <input required type="text" type="text" id="input_username" placeholder="Wansa naaw kya chui?"
-                                    class="form-control form-control-sm validate ml-0">
+                                    class="form-control  ml-0">
                                 <select name="sex" id="sex" class="form-control">
                                     <option value="male">Mohniv</option>
                                     <option value="female">Zanan</option>
@@ -128,7 +128,7 @@
                                     <span class="print">
                                        
                                     </span>
-                                </div>
+                                </div><br><br>
                                 <div class="container">
                                     <div class="rounded p-2 pull-right "
                                         style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
@@ -732,11 +732,17 @@
 
         //CALLING THE COMPLIMENT hELPER
         $(document).on('click', '#showcompliment', function () {
-            $('#modalLoginAvatar').modal('hide');
-            $('#main-section').css('display', 'block');
             var name = $("#input_username").val();
+            if(name != "")
+            {
+                $('#modalLoginAvatar').modal('hide');
+            $('#main-section').css('display', 'block');
+           
             $(".username").html(name);
             initialise_complement();
+
+            }
+           
 
 
 
