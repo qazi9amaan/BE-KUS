@@ -54,15 +54,22 @@
             position: absolute;
 
         }
+        .show{
+            padding-right: 0px !important;
+        }
+        .modal-dialog {
+         margin: 0rem auto;
+        }
+
     </style>
 
     <section>
         <!--Modal: Login with Avatar Form-->
-        <div class="modal fade" id="modalLoginAvatar" tabindex="12" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="modalLoginAvatar" tabindex="12" role="dialog"    aria-labelledby="myModalLabel"
+            aria-hidden="true"> 
             <div class="modal-dialog cascading-modal modal-avatar modal-xl" role="document">
                 <!--Content-->
-                <div style=" border-radius: 15px;" class="modal-content">
+                <div class="modal-content">
 
                     <!--Body-->
                     <div class="modal-body text-center mb-0 ">
@@ -74,7 +81,7 @@
                             src="images/bg-4.jpg"
                             alt="" style="width: 150px ;height: 150px;">
                         <h5 class="mt-1 ">Wal pakho broanth</h5>
-                        <p class="lead">Kaeshryen baapath, Kaesh<sup>y</sup>ir paaeth'i/p>
+                        <p class="lead">Kaeshryen baapath, Kaesh<sup>y</sup>ir paaeth'i</p>
 
                         <div class="md-form ml-0 mr-0">
                             <div class="container">
@@ -84,7 +91,7 @@
                                 <select name="sex" id="sex" class="form-control">
                                     <option value="male">Mohniv</option>
                                     <option value="female">Zanan</option>
-                                    <!-- <option disabled value="">Wani hai pai hi che</option> -->
+                                    <option disabled value="">Wani hai pai hi che</option>
                                 </select>
                                 <input type="date" name="" class="form-control" classplaceholder="zaii doh" id="">
                             </div>
@@ -163,6 +170,67 @@
                             
                         </div>
                     </div>
+
+                    <div class="carousel-item ">
+                        <div id="gradient_overlay" class="filter-a" onclick="off()">
+                            <div class="container ">
+                                <div class="row vertical-align">
+                                    <div class="col-12 text-center px-3">
+                                        <div class="result-container px-2">
+                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
+                                                <div class="shadow  bg-white rounded p-3 px-5 text-justify"
+                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
+                                                    line-height: normal; font-size :19px ; opacity: .8; font-weight:300; margin-top: 3.5rem;">
+                                                    <div id="gradient_text" class="text-justify">
+                                                        <center>
+                                                            <span class="username"></span> <i class="icon-heart"
+                                                                aria-hidden="true"></i>
+                                                        </center>
+
+                                                        <span style="margin-top: 3rem;" class="print"
+                                                            id="componentresult">
+                                                          
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="container">
+                                                    <div class="rounded p-2 pull-right "
+                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
+                                                        bekus.ml
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            <div class="carousel-caption carousel-control-next">
+                                <div class="container ">
+                                    <h1  style= "margin-top: 25px; color: #333;" class="display-5">DOUBLE_CLICK</h1>
+                                </div>
+                                </div>
+                        </div>
+                        <div gradient-id="1" id="gradient_background"
+                            class="back d-flex align-items-center justify-content-center min-vh-100 w-100">
+
+                        </div>
+                    </div>
+
 
                     <div class="carousel-item  ">
                         <div id="gradient_overlay" class="filter-c" onclick="off()">
@@ -532,66 +600,7 @@
 
 
                     <!-- GRADIENT BACKGROUND  -->
-                    <div class="carousel-item ">
-                        <div id="gradient_overlay" class="filter-a" onclick="off()">
-                            <div class="container ">
-                                <div class="row vertical-align">
-                                    <div class="col-12 text-center px-3">
-                                        <div class="result-container px-2">
-                                            <div class="col-xl-12 col-md-12 col-xs-12 col-sm-12 ">
-                                                <div class="shadow  bg-white rounded p-3 px-5 text-justify"
-                                                    style="word-wrap: break-word;  display:block; opacity: .8; 
-                                                    line-height: normal; font-size :19px ; opacity: .8; font-weight:300; margin-top: 3.5rem;">
-                                                    <div id="gradient_text" class="text-justify">
-                                                        <center>
-                                                            <span class="username"></span> <i class="icon-heart"
-                                                                aria-hidden="true"></i>
-                                                        </center>
-
-                                                        <span style="margin-top: 3rem;" class="print"
-                                                            id="componentresult">
-                                                          
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div class="container">
-                                                    <div class="rounded p-2 pull-right "
-                                                        style=" color: #fff; line-height: normal; font-size :19px ; font-weight:300;">
-                                                        bekus.ml
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <a state="show" class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                                data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                                data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            <div class="carousel-caption carousel-control-next">
-                                <div class="container ">
-                                    <h1  style= "margin-top: 25px; color: #333;" class="display-5">DOUBLE_CLICK</h1>
-                                </div>
-                                </div>
-                        </div>
-                        <div gradient-id="1" id="gradient_background"
-                            class="back d-flex align-items-center justify-content-center min-vh-100 w-100">
-
-                        </div>
-                    </div>
-
+                    
 
 
                 </div>
@@ -754,7 +763,7 @@
         });
 
         $('.carousel').carousel({
-            interval: 1000 * 5
+            interval: 1000 * 7
         });
     </script>
 
