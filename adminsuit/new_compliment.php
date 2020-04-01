@@ -131,7 +131,11 @@
                         phrases, compliments. Please supports us and contribute here and get connected to us. Share your
                         view, we'll appreciate it!
                         </p>
+                                <div class="col-12">
+                                   <div id="result">
 
+                                </div><br>
+                                </div>
                      
                             <div class="col-12">
                             
@@ -142,15 +146,12 @@
                              </div>
                             <div class="col-12">
                             <div class="form-inline text-right pull-right col-xs-6">
-                            <select name="sex"  style = "width:115px;" id="sex" class = "form-control form-control-lg btn-outline-amber pull-right" >
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                            <button id = "upload_btn" class="btn btn-outline-amber sm pull-right" >Upload</button>
+                          
+                            <a id = "upload_btn_male" class="btn btn-outline-amber  pull-right" >Male</a>
+                            <a id = "upload_btn_female" class="btn btn-outline-amber  pull-right" >Female</a>
+                            <a id = "upload_btn_both" class="btn btn-outline-amber  pull-right" >Both</a>
                          </div> </div>
-                            <div id="result">
-
-                            </div>
+                            
                        
 
 
@@ -179,14 +180,20 @@
 
 <script>
   $(document).ready(function(){
-  $('#upload_btn').click(function(){
+
+    
+    $('#compliment').keyup(function(){
+        $('#result').html('');
+    });
+
+  $('#upload_btn_male').click(function(){
     
          jQuery.ajax({
            url:"admin_functions.php",
            type:"POST",
             data: {
                 uploadcompliment:true,
-                 sex : $('select[name="sex"]').val(),
+                 sex : 'male',
                 compliment : $('#compliment').val(),
                  
                },
@@ -195,8 +202,45 @@
                  $('#compliment').val('');
                  }  
          });
+    });
 
-});
+
+    $('#upload_btn_both').click(function(){
+    
+        jQuery.ajax({
+        url:"admin_functions.php",
+        type:"POST",
+        data: {
+            uploadcompliment:true,
+                sex : 'both',
+            compliment : $('#compliment').val(),
+                
+            },
+            success:function(data){  
+                $('#result').html(data);
+                $('#compliment').val('');
+                }  
+        });
+    });
+
+    $('#upload_btn_female').click(function(){
+    
+        jQuery.ajax({
+        url:"admin_functions.php",
+        type:"POST",
+        data: {
+            uploadcompliment:true,
+                sex : 'female',
+            compliment : $('#compliment').val(),
+                
+            },
+            success:function(data){  
+                $('#result').html(data);
+                $('#compliment').val('');
+                }  
+        });
+    });
+
 
 });
 </script>

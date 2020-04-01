@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <title>BE-KUS | MEOUN DOS </title>
+</head>
+
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  p {
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+
+  }
+
+  section {
+    padding: 23px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    color: white;
+    position: relative;
+
+  }
+
+  section>* {
+    position: relative;
+    z-index: 2;
+    
+  }
+
+  @media only screen and (min-width: 768px) {
+    section>* {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    padding: 12px;
+    margin: 5%;
+  }
+}
+
+  section {
+    background-image: linear-gradient(#ff9966, #ff5e62);
+    background-position: center;
+    background-repeat: repeat;
+    height: 100vh;
+   
+  }
+  section:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.24);
+  }
+
+  .shadow {
+    color: #ff5e62;
+margin-top:8rem !important;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+
+   .modal {
+            background: none !important;
+        }
+
+        .modal-content {
+            background: black !important;
+	    margin-top:3rem;
+        }
+
+      
+        .modal-dialog {
+         margin: 0rem auto;
+        }
+
+      .form-control{
+        background: black;
+        border :1px solid rgb(53, 52, 52);
+        border-radius: 0%;
+        margin-bottom: 1px;
+      }
+
+      .form-control:focus{
+        background: black;
+        border :1px solid rgb(53, 52, 52);
+        border-radius: 0%;
+        margin-bottom: 1px;
+      }
+
+      body{
+        background: black;
+      }
+      
+      
+      #wrapper{
+        display: none;
+       
+      }
+     
+</style>
+
+
+<body>
+  
+  
+    <!--Modal: Login with Avatar Form-->
+    <div class="modal fade" id="modalLoginAvatar" tabindex="12" role="dialog"    aria-labelledby="myModalLabel"
+        aria-hidden="true"> 
+        <div class="modal-dialog cascading-modal modal-avatar modal-xl" role="document">
+            <!--Content-->
+            <div class="modal-content">
+
+                <!--Body-->
+                <a href="/index.html"> <i  style = "color:azure" class=" ml-3 fa fa-arrow-left" aria-hidden="true"></i></a>
+                <div class="modal-body text-center mb-0 ">
+
+                 
+
+
+                    <img class=" shadow bg-dark rounded-circle mx-autod-block m-3"
+                        src="../images/bg-4.jpg"
+                        alt="" style="width: 150px ;height: 150px;">
+                    <h5 class="mt-1 ">Meoun doss kya wanan</h5>
+                    <p class="lead">Kaeshryen baapath, Kaesh<sup>y</sup>ir paaeth'i</p>
+
+                    <div class="md-form ml-0 mr-0">
+                        <div class="container">
+
+                            <input required type="text" type="text" id="input_username" placeholder="Wansa naaw kya chui?"
+                                class="form-control  ml-0">
+                            <select name="sex" id="sex" class="form-control">
+                              <option  disabled value="a">Wani che kya sa chuk</option>
+                                <option value="male">Mohniv</option>
+                                <option value="female">Zanan</option>
+                                <option disabled value="">Wani hai pai hi che</option>
+                            </select>
+                            <input required type="text" type="text" id="input_friends" placeholder="Wansa doosas sund naaw kya chui?"
+                            class="form-control  ml-0">
+                           
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button id="showcompliment" class="btn btn-dark  rounded mt-1">Mye haav doss kya wanan<i
+                                class="fa fa-forward ml-1"></i></button>
+                    </div>
+                </div>
+
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: Login with Avatar Form-->
+
+  
+  <div id="wrapper">
+    <section id = "backgroundchange" data-bid=1>
+      <div class="row">
+        <div class="col-12">
+          <div class="shadow  bg-white rounded p-4 mt-5">
+            <p  class="text-center">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              <!-- USER -->
+              <p id="user">
+             
+              </p>
+
+              <!-- MESSAGE -->
+              <span class="print">
+                 </span>
+
+              <!-- FRIEND -->
+              <p class="text-right pr-3">
+                Cheni bapath hamesh tayar <br>
+                <span id = "friend">
+                
+                </span>
+              </p>
+            </p>
+            <span class = "text-center">@bekus.ml&nbsp;</span>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+</body>
+  
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" i
+  ntegrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+<script>
+  
+  
+  function changebackground(){
+    var id = $('#backgroundchange').attr('data-bid');
+    switch (id) {
+                case "1":
+                    $("#backgroundchange").css("background-image", "linear-gradient(#FC5C7D,#6A82FB)");
+                    $(".shadow ").css('color', '#6A82FB')
+                    $("#backgroundchange").attr('data-bid', '2');
+
+                    break;
+                case "2":
+                    $("#backgroundchange").css("background", "#333");
+                    $(".shadow ").css('color', '#333')
+                    $("#backgroundchange").attr('data-bid', '3');
+
+                    break;
+                case "3":
+                    $("#backgroundchange").css("background-image", "linear-gradient( #CAC531,#F3F9A7)");
+                    $(".shadow ").css('color', '#CAC531')
+                    $("#backgroundchange").attr('data-bid', '4');
+
+                    break;
+
+                case "4":
+                    $("#backgroundchange").css("background-image", "linear-gradient( #e1eec3,#f05053)");
+                    $(".shadow ").css('color', '#f05053')
+                    $("#backgroundchange").attr('data-bid', '5');
+                    break;
+                case "5":
+
+                    $("#backgroundchange").css("background-image", "linear-gradient( #ff9966,#ff5e62)");
+                    $(".shadow ").css('color', '#ff5e62')
+                    $("#backgroundchange").attr('data-bid', '1');
+                    break;
+                default:
+                    $(".shadow ").css('color', 'rgb(34, 119, 96);')
+                    $("#backgroundchange").css("background-image",
+                        "linear-gradient(120deg, rgba(218, 241, 235, 0.705), rgba(15, 235, 176, 0.712));");
+            }
+  }
+
+
+
+
+  $('.shadow').dblclick(function(){
+    changebackground();
+  });
+
+  $(document).ready(function () {
+    $('#modalLoginAvatar').modal({
+           backdrop: 'static',
+           keyboard: false
+            },
+            'show'
+            );
+   });
+
+  
+
+
+
+        $(document).on('click', '#showcompliment', function () {
+            var name = $("#input_username").val();
+            var friend = $("#input_friends").val();
+            if(name != "" && friend != "")
+            {
+                $('#modalLoginAvatar').modal('hide');
+                $('#wrapper').css('display', 'block');
+               
+                var sex = $('#sex').val();
+                $("#input_username").val('');
+                $("#input_friends").val('');
+                $("#user").html(name);
+                $("#friend").html(friend);
+
+                initialise_friend(sex);
+
+            }
+           
+
+
+
+        });
+
+</script>
+<script>
+function  initialise_friend(sex){
+ 
+         jQuery.ajax({
+             url: "../helper/functions.php",
+             type: "GET",
+             data: 'getfrienddetail=true&sex='+sex,
+             success: function (data) {
+                 $('.print').html(data);
+
+             }
+         });
+ }
+</script>
+
+
+</html>

@@ -110,9 +110,9 @@ if(isset($_POST['registerausernow']))
 if(isset($_POST['getnewrequest'])){
 	       if(!empty($_POST['username']) && !empty($_POST['compliment']))
 	       {    
-               $user=$_POST['username'];
-               $comp=$_POST['compliment'];
-               $instagram_id=$_POST['instagramid'];
+               $user=mysqli_real_escape_string($conn, $_POST['username']);
+               $comp = mysqli_real_escape_string($conn, $_POST['compliment']);
+               $instagram_id= mysqli_real_escape_string($conn, $_POST['instagramid']);
                 $sql = "INSERT INTO requests (user, compliment, instagramid) VALUES ('$user', '$comp','$instagram_id')";
                 
                 if (mysqli_query($conn, $sql)) {
@@ -131,10 +131,11 @@ if(isset($_POST['getnewrequest'])){
 
 
 
+
 // VIEW COMPLEMENTS HANDLER
 function  getcomplimenentfor($conn,$user,$sex)
 {
-  $sql = "select value from compliments where sex = '$sex' order by rand() limit 4 ";
+  $sql = "select value from compliments where sex = '$sex' order by rand() limit 6";
   if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){                
           while($row = mysqli_fetch_array($result)){
@@ -144,6 +145,14 @@ function  getcomplimenentfor($conn,$user,$sex)
       }
 }
 
+
+function  add_the_visitor($conn,$user,$sex)
+{
+  $user=mysqli_real_escape_string($conn, $user);
+  $sql = "INSERT INTO visitors (name,sex) VALUES ('$user', '$sex')";
+  mysqli_query($conn, $sql);
+
+}
 
 
 // HOLDER
@@ -155,7 +164,9 @@ if(isset($_GET['getcomplement']))
   {
     
   }else{
+    add_the_visitor($conn,$user,$sex);
     getcomplimenentfor($conn,$user,$sex);
+
   }
 }
 
@@ -172,12 +183,22 @@ if(isset($_GET['getcomplement']))
 // HOLDER
 if(isset($_GET['getallcontributors']))
 {
-  $sql = "SELECT * FROM contributors ";
+  $sql = "SELECT *  FROM contributors ";
   if($result = mysqli_query($conn, $sql)){
       if(mysqli_num_rows($result) > 0){                
           while($row = mysqli_fetch_array($result)){
             echo '
-            <li class="ftco-animate mb-1"><a href="instagram.com/'.$row['instagram_id'].'"><span class="icon-instagram"></span></a><br><span class = "p-1 " >'.$row['name'].'</span></li>
+		 <div class="card">
+            <div class="card-body">
+            <div class="col wrapper" ">
+            <a href="http://instagram.com/'.$row['instagram_id'].'"> <button type="button" class="btn-circle btn-xl mb-1">
+                <i style="font-size: 22px;" class="fa fa-instagram"></i>
+            </button>  &nbsp; &nbsp;   '.$row["name"].'
+            </a>
+            </div>
+            </div>
+          </div>      
+
             ';
           }
         }
@@ -186,6 +207,33 @@ if(isset($_GET['getallcontributors']))
 
 
 
+
+// VIEW FRIENDS COMPLEMET HANDLER
+function  getcomplimenentformfriend($conn,$sex)
+{
+  $sql = "select value from compliments where sex = '$sex' order by rand() limit 5";
+  if($result = mysqli_query($conn, $sql)){
+      if(mysqli_num_rows($result) > 0){                
+          while($row = mysqli_fetch_array($result)){
+            echo ' '.$row['value'];
+          }
+        }
+      }
+}
+
+
+
+// HOLDER
+if(isset($_GET['getfrienddetail']))
+{
+  $sex = $_GET['sex'];
+  if(empty($sex))
+  {
+    
+  }else{
+    getcomplimenentformfriend($conn,$sex);
+  }
+}
 
 
 ?>

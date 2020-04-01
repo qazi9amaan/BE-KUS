@@ -3,7 +3,7 @@
 	
 		 $dbhost = "localhost";
 		 $dbuser = "root";
-		 $dbpass = "";
+		 $dbpass = "9419002492";
 		 $db = "bekus";
 		 $conn = mysqli_connect($dbhost, $dbuser, $dbpass,$db);
 

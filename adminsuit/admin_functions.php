@@ -7,12 +7,32 @@
 
     // GLOBALLY USED FUNCTIONS
     function add_compliment($conn,$sex,$compliment){
+        $compliment = mysqli_real_escape_string($conn, $compliment);
+        if($sex=='both')
+        {   
+            $sql = "INSERT INTO compliments (sex,value) VALUES ('male', '$compliment');";
+            $sql .= "INSERT INTO compliments (sex,value) VALUES ('female', '$compliment');";
+            if (mysqli_multi_query($conn, $sql)) {
+                echo '<div class="alert alert-success" role="alert">
+               success!
+              </div>';
+            } else {
+                echo '<div class="alert alert-danger" role="alert">
+                '. mysqli_error($conn).'
+               </div>' ;
+            }
+        }else{
         $sql = "INSERT INTO compliments (sex,value) VALUES ('$sex', '$compliment')";
         if (mysqli_query($conn, $sql)) {
-            echo 'success';
+            echo '<div class="alert alert-success" role="alert">
+            success !
+          </div>';
         } else {
-                echo "Error compliments: " . mysqli_error($conn);
+                echo '<div class="alert alert-danger" role="alert">
+               '. mysqli_error($conn).'
+              </div>' ;
         }
+    }
     } 
 
     function remove_request($conn,$id){
@@ -80,6 +100,16 @@
     
 
 
+    function remove_visitor($conn,$id){
+        $sql = "DELETE FROM visitors WHERE id=".$id;
+        if (mysqli_query($conn, $sql)) {
+            
+        } else {
+            echo "Error deleting record: ".mysqli_error($conn);
+        }
+    }
+
+
 
     
     // ADMIN PANEL COMPONENTS
@@ -123,14 +153,28 @@
     }
 
 
+    function get_visitors($conn)
+    {
+        $sql = "SELECT count(*) as total_visitors from visitors";
+        if($result = mysqli_query($conn, $sql)){
+            if(mysqli_num_rows($result) > 0){                
+                $row = mysqli_fetch_array($result);
+                return $row['total_visitors'];
+            }else{
+                return 0;
+            }
+        }
+    }
+
+
     // INITIALISE COMPONENTS
     if(isset($_GET['getalldata'])){
         $request_count = get_request_count($conn);
         $contributor_count =get_contributors($conn);
         $compliments_count= get_compliments($conn);
+        $visitors_count=    get_visitors($conn);    
 
-       
-            echo '
+ echo '
                     <div class="card bg-dark">
                     <div class="card-body text-center">
                         <h1 class="display-2 p-3">'.$request_count.'</h1>
@@ -152,6 +196,15 @@
                     </div>
                     <a href="compliment_handler.php" class="stretched-link"></a>
                 </div>
+                <div class="card-deck">
+                <div class="card bg-dark">
+                <div class="card-body text-center">
+                    <h1 class="display-2 p-3">'.$visitors_count.'</h1>
+                    <h5 class="card-title">VISITORS</h5>
+                </div>
+                <a href="visitor_handler.php" class="stretched-link"></a>
+            </div>
+            </div>
             ';
     }
 
@@ -427,5 +480,106 @@
     }
 
 
+    //VISITOR HANDLER
+
+
+         //DELETING  VISITOR
+         if(isset($_POST['deletevisitor'])){
+            $id = $_POST['id'];
+            remove_visitor($conn,$id);
+        }
+
+
+    if(isset($_GET['getvisitors'])){
+        $sql = "SELECT * FROM visitors ORDER BY upload_date DESC LIMIT 150 ";
+        if($result = mysqli_query($conn, $sql)){
+            if(mysqli_num_rows($result) > 0){                
+                while($row = mysqli_fetch_array($result)){
+                    echo '
+                    <a style = "border-bottom: 1px solid black" href="#" class="list-group-item list-group-item-action flex-column align-items-start bg-dark">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">'.$row['sex'].' &nbsp;&nbsp; <span class="text-right">'.$row['upload_date'].' </span></h5>
+                            
+                        </div>
+                        <p class="mb-1 text-left">'.$row['name'].'</p>
+                        <div class="form-inline text-right pull-right col-xs-6">
+                            <button id = "remove_visitor_btn" class="btn btn-outline-amber sm pull-right" data-visitor_id = "'.$row['id'].'" >REMOVE</button>
+                         </div>
+                    </a>
+
+                    ';
+                }
+            }
+        
+            }else{
+                echo '
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+                    <p class="mb-1 text-left">No compliments available</p>
+                </a>
+                ';
+
+            }
+                    
+
+
+       
+           
+    }
+
+
+ if(isset($_GET['getvisitorscount'])){
+       
+         $visitors_count=    (string)get_visitors($conn);   
+
+         echo '
+         <div class="card bg-dark">
+         <div class="card-body text-center">
+             <h1 class="display-2 p-1">'.$visitors_count[0].'</h1>
+             <h5 class="card-title"></h5>
+         </div>
+         <a href="request_handler.php" class="stretched-link"></a>
+     </div>
+     <div class="card bg-dark">
+         <div class="card-body text-center">
+             <h1 class="display-2 p-1">'.$visitors_count[1].'</h1>
+             <h5 class="card-title"></h5>
+         </div>
+         <a href="contributor_handler.php" class="stretched-link"></a>
+     </div>
+     <div class="card bg-dark">
+         <div class="card-body text-center">
+             <h1 class="display-2 p-1">'.$visitors_count[2].'</h1>
+             <h5 class="card-title"></h5>
+         </div>
+         <a href="compliment_handler.php" class="stretched-link"></a>
+     </div>
+     
+     <div class="card bg-dark">
+     <div class="card-body text-center">
+         <h1 class="display-2 p-1">'.$visitors_count[3].'</h1>
+         <h5 class="card-title"></h5>
+     </div>
+     <a href="visitor_handler.php" class="stretched-link"></a>
+ </div>
+
+  <div class="card bg-dark">
+     <div class="card-body text-center">
+         <h1 class="display-2 p-1">'.$visitors_count[4].'</h1>
+         <h5 class="card-title"></h5>
+     </div>
+     <a href="visitor_handler.php" class="stretched-link"></a>
+ </div>
+
+<div class="card bg-dark">
+     <div class="card-body text-center">
+         <h1 class="display-2 p-1">'.$visitors_count[5].'</h1>
+         <h5 class="card-title"></h5>
+     </div>
+     <a href="visitor_handler.php" class="stretched-link"></a>
+ </div>
+
+
+ ';
+        }
 
 ?>
